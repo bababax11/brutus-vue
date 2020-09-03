@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="header-inner">
-      <span>wasmオセロ</span>
+      <span>BRUTUS</span>
       <!-- <img src="/icons/GitHub.png" width="24" height="24"/> -->
     </div>
   </header>
