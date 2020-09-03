@@ -75,9 +75,9 @@ export class GameState {
     return this.turnChange()
   }
   moveWithId(action) {
-    const i = Math.ceil(action / 45)
+    const i = Math.floor(action / 45)
     const tmp = action % 45
-    const j = Math.ceil(tmp / 9)
+    const j = Math.floor(tmp / 9)
     const drc = tmp % 9
     return this.move(i, j, drc)
   }
