@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1>BRUTUS</h1>
+    <h1>BRUTUS AI | 工学博覧会2020</h1>
     <!-- <img src="/icons/GitHub.png" width="24" height="24"/> -->
   </header>
 </template>

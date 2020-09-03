@@ -1,6 +1,9 @@
 <template>
   <main>
     <div class="center">
+      <p>
+        <a class="btn-border" @click="reset">リセット</a>
+      </p>
       <!-- <TopPanel /> -->
       <span>{{ message ? message : turn }}</span>
       <Board :game="game" @select="select" />
@@ -57,6 +60,9 @@ export default {
       } else if (state === -1) {
         this.message = "後手勝利です"
       }
+    },
+    reset() {
+      this.game = new GameState()
     }
   }
 }
@@ -64,5 +70,25 @@ export default {
 <style lang="scss" scoped>
 .center {
   text-align: center;
+}
+.btn-border {
+  display: inline-block;
+  max-width: 180px;
+  text-align: left;
+  border: 2px solid #037003;
+  font-size: 16px;
+  color: #037003;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  margin: 10px;
+  border-radius: 4px;
+  transition: 0.4s;
+}
+
+.btn-border:hover {
+  background-color: #037003;
+  border-color: #037003;
+  color: #fff;
 }
 </style>

@@ -10,6 +10,9 @@ export default {
   components: {
     Header: () => import("@/components/Header"),
     Main: () => import("@/components/Main")
+  },
+  mounted() {
+    document.title = "BRUTUS AI | 工学博覧会2020"
   }
 }
 </script>
