@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="board">
     <div v-for="(row, i) in game.board" :key="i" class="container">
       <div v-for="(s, j) in row" :key="j" class="frame">
         <Cell :stone="s" @click="_select(i, j)" />
@@ -31,12 +31,15 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.board {
+  margin: 10px;
+}
 .container {
   display: flex;
   justify-content: center;
 }
 .frame {
   border: 1px solid black;
-  background-color: green;
+  background-color: rgb(180, 151, 21);
 }
 </style>

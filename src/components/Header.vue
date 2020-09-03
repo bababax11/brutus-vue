@@ -1,28 +1,25 @@
 <template>
   <header>
-    <div class="header-inner">
-      <span>BRUTUS</span>
-      <!-- <img src="/icons/GitHub.png" width="24" height="24"/> -->
-    </div>
+    <h1>BRUTUS</h1>
+    <!-- <img src="/icons/GitHub.png" width="24" height="24"/> -->
   </header>
 </template>
 <script>
 export default {}
 </script>
 <style lang="scss" scoped>
-.header-inner {
-  width: 576px;
-  display: flex;
-  align-items: baseline;
-}
-span {
-  size: 36;
-}
 header {
-  width: 100vw;
-  height: 72;
+  width: 100%;
+  padding: 30px 4% 10px;
+  background-color: #27bd19;
+  // position: fixed;
+  top: 0;
   display: flex;
-  padding: 0 0 calc((100vw - (100vw * 0.11 * 8)) / 2)
-    calc((100vw - (100vw * 0.11 * 8)) / 2);
+}
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  color: #ffffff;
 }
 </style>
