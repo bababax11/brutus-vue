@@ -2,7 +2,11 @@
   <div class="board">
     <div v-for="(row, i) in game.board" :key="i" class="container">
       <div v-for="(s, j) in row" :key="j" class="frame">
-        <Cell :stone="s" @click="_select(i, j)" />
+        <Cell
+          :stone="s"
+          :selected="selected && i === selected[0] && j === selected[1]"
+          @click="_select(i, j)"
+        />
       </div>
     </div>
   </div>
@@ -14,7 +18,11 @@ export default {
     Cell: () => import("./Cell")
   },
   props: {
-    game: GameState
+    game: GameState,
+    selected: {
+      type: Array,
+      default: null
+    }
   },
   data: function() {
     return {

@@ -6,7 +6,7 @@
       </p>
       <!-- <TopPanel /> -->
       <span>{{ message ? message : turn }}</span>
-      <Board :game="game" @select="select" />
+      <Board :game="game" :selected="selected" @select="select" />
     </div>
   </main>
 </template>
