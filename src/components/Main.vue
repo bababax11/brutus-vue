@@ -33,6 +33,7 @@ export default {
     select(i, j) {
       console.log(101, i, j)
       if (!this.selected) {
+        if (this.game.board[i][j] != this.game.turn) return
         this.selected = [i, j]
         return
       }

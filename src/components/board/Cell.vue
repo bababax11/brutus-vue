@@ -3,7 +3,7 @@
     :class="{ white: stone <= -1, black: stone >= 1, selected: selected }"
     @click="$emit('click')"
   >
-    <span v-if="selected">★</span>
+    <span v-if="selected || legal">★</span>
   </div>
 </template>
 <script>
@@ -14,6 +14,10 @@ export default {
       required: true
     },
     selected: {
+      type: Boolean,
+      default: false
+    },
+    legal: {
       type: Boolean,
       default: false
     }
