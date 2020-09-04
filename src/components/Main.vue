@@ -15,19 +15,19 @@ import { GameState } from "@/game_state"
 export default {
   components: {
     // TopPanel: () => import("./board/TopPanel"),
-    Board: () => import("./board/Board")
+    Board: () => import("./board/Board"),
   },
   data() {
     return {
       game: new GameState(),
       selected: null,
-      message: ""
+      message: "",
     }
   },
   computed: {
     turn() {
       return this.game.turn === 1 ? "先手番です" : "後手番です"
-    }
+    },
   },
   methods: {
     select(i, j) {
@@ -63,8 +63,8 @@ export default {
     },
     reset() {
       this.game = new GameState()
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>

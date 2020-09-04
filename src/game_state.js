@@ -8,12 +8,12 @@ const Drc = {
   B_fl: 5,
   B_l: 6,
   B_bl: 7,
-  f2: 8
+  f2: 8,
 }
 const Winner = {
   plus: 1,
   minus: -1,
-  notEnded: 0
+  notEnded: 0,
 }
 
 const DIRECTIONS = [
@@ -24,7 +24,7 @@ const DIRECTIONS = [
   [1, 0],
   [-1, -1],
   [0, -1],
-  [1, -1]
+  [1, -1],
 ]
 
 export class GameState {
@@ -36,7 +36,7 @@ export class GameState {
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
       [0, 1, 0, 1, 0],
-      [1, 1, 2, 1, 1]
+      [1, 1, 2, 1, 1],
     ]
     this.turn = 1
     this.n_turns = 0
@@ -53,7 +53,7 @@ export class GameState {
     }
     if (direction[0] === 2 * this.turn) return null
     if (Math.abs(direction[0]) === 2 && direction[1] !== 0) return null
-    let drc = DIRECTIONS.map(x => x.toString()).indexOf(direction.toString())
+    let drc = DIRECTIONS.map((x) => x.toString()).indexOf(direction.toString())
     if (drc === -1) drc = Drc.f2
     return drc
   }
@@ -151,7 +151,7 @@ export class GameState {
   }
 }
 
-const boundaryCheck = ij => {
+const boundaryCheck = (ij) => {
   const [i, j] = ij
   return 0 <= i && i <= 6 && 0 <= j && j <= 4
 }

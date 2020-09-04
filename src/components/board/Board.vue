@@ -16,14 +16,14 @@
 import { GameState } from "@/game_state"
 export default {
   components: {
-    Cell: () => import("./Cell")
+    Cell: () => import("./Cell"),
   },
   props: {
     game: GameState,
     selected: {
       type: Array,
-      default: null
-    }
+      default: null,
+    },
   },
   methods: {
     _select(i, j) {
@@ -34,8 +34,8 @@ export default {
       if (!this.selected) return false
       const [si, sj] = this.selected
       return this.game.isLegalMove(si, sj, [i - si, j - sj])
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>

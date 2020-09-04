@@ -11,17 +11,17 @@ export default {
   props: {
     stone: {
       type: Number,
-      required: true
+      required: true,
     },
     selected: {
       type: Boolean,
-      default: false
+      default: false,
     },
     legal: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>
