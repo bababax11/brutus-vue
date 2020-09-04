@@ -47,27 +47,44 @@ export class GameState {
     }
     return DIRECTIONS[drc]
   }
-  move(i, j, drc) {
-    if (this.n_turns === 0 && drc === Drc.f2) {
-      throw new Error()
+  undirectionize(direction) {
+    if (Math.abs(direction[0]) > 2 || Math.abs(direction[1]) > 1) {
+      return null
     }
-    if (this.board[i][j] != this.turn) {
+    if (direction[0] === 2 * this.turn) return null
+    if (Math.abs(direction[0]) === 2 && direction[1] !== 0) return null
+    let drc = DIRECTIONS.map(x => x.toString()).indexOf(direction.toString())
+    if (drc === -1) drc = Drc.f2
+    return drc
+  }
+  isLegalMove(i, j, drc) {
+    if (drc instanceof Array) {
+      drc = this.undirectionize(drc)
+      if (drc === null) return false
+    }
+    if (this.n_turns === 0 && drc === Drc.f2) {
+      return false
+    }
+    if (this.board[i][j] !== this.turn) {
+      return false
+    }
+    const direction = this.directionize(drc)
+    console.log(direction)
+    const nxt = [i + direction[0], j + direction[1]]
+    if (!boundaryCheck(nxt)) {
+      return false
+    }
+    if (this.board[nxt[0]][nxt[1]] != 0) {
+      return false
+    }
+    return true
+  }
+  move(i, j, drc) {
+    if (!this.isLegalMove(i, j, drc)) {
       throw new Error()
     }
     const direction = this.directionize(drc)
     const nxt = [i + direction[0], j + direction[1]]
-    if (!boundaryCheck(nxt)) {
-      throw new Error()
-    }
-    if (this.board[nxt[0]][nxt[1]] != 0) {
-      throw new Error()
-    }
-    if (drc == Drc.f2) {
-      const between = [i + direction[0] / 2, j]
-      if (this.board[between[0]][between[1]] == this.turn) {
-        throw new Error()
-      }
-    }
     // const boardBeforeMove = clone(this.board)
     this.board[i][j] = 0
     this.board[nxt[0]][nxt[1]] = this.turn
@@ -82,10 +99,8 @@ export class GameState {
     return this.move(i, j, drc)
   }
   moveDVec(i, j, direction) {
-    if (direction[0] === 2 * this.turn) throw new Error()
-    if (Math.abs(direction[0]) == 2 && direction[1] != 0) throw new Error()
-    let drc = DIRECTIONS.map(x => x.toString()).indexOf(direction.toString())
-    if (drc === -1) drc = Drc.f2
+    const drc = this.undirectionize(direction)
+    if (drc === null) throw new Error()
     return this.move(i, j, drc)
   }
   reverse(ij) {
