@@ -73,7 +73,7 @@ export class GameState {
     if (!boundaryCheck(nxt)) {
       return false
     }
-    if (this.board[nxt[0]][nxt[1]] != 0) {
+    if (this.board[nxt[0]][nxt[1]] !== 0) {
       return false
     }
     return true
