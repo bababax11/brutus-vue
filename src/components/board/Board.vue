@@ -5,6 +5,7 @@
         <Cell
           :stone="s"
           :selected="selected && i === selected[0] && j === selected[1]"
+          :legal="isLegal(i, j)"
           @click="_select(i, j)"
         />
       </div>
@@ -24,16 +25,16 @@ export default {
       default: null
     }
   },
-  data: function() {
-    return {
-      X_SIZE: 7,
-      Y_SIZE: 5
-    }
-  },
   methods: {
     _select(i, j) {
       this.$emit("select", i, j)
       this.$forceUpdate()
+    },
+    isLegal(i, j) {
+      if (!this.selected) return false
+      const [si, sj] = this.selected
+      console.log(si, sj, [i - si, j - sj])
+      return this.game.isLegalMove(si, sj, [i - si, j - sj])
     }
   }
 }

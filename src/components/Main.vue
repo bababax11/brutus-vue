@@ -33,15 +33,16 @@ export default {
     select(i, j) {
       console.log(101, i, j)
       if (!this.selected) {
+        if (this.game.board[i][j] != this.game.turn) return
         this.selected = [i, j]
         return
       }
       const [si, sj] = this.selected
-      if (Math.abs(si - i) > 2 || Math.abs(sj - j) > 1) {
+      const d = [i - si, j - sj]
+      if (d[0] === 0 && d[1] === 0) {
         this.selected = null
         return
       }
-      const d = [i - si, j - sj]
       let state
       try {
         console.log(si, sj, d)
