@@ -131,7 +131,7 @@ export class GameState {
     return this.getWinner()
   }
   getWinner() {
-    if (this.turn == -1) {
+    if (this.turn === -1) {
       if (
         this.board[6][1] === -1 ||
         this.board[6][3] === -1 ||
