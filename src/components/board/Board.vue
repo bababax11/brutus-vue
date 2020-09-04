@@ -33,7 +33,6 @@ export default {
     isLegal(i, j) {
       if (!this.selected) return false
       const [si, sj] = this.selected
-      console.log(si, sj, [i - si, j - sj])
       return this.game.isLegalMove(si, sj, [i - si, j - sj])
     }
   }

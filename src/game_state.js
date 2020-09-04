@@ -69,7 +69,6 @@ export class GameState {
       return false
     }
     const direction = this.directionize(drc)
-    console.log(direction)
     const nxt = [i + direction[0], j + direction[1]]
     if (!boundaryCheck(nxt)) {
       return false
