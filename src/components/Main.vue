@@ -63,6 +63,7 @@ export default {
     },
     reset() {
       this.game = new GameState()
+      this.message = ""
     },
   },
 }
